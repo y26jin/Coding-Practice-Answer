@@ -1,0 +1,53 @@
+#include <iostream>
+#include <map>
+#include <vector>
+#include <deque>
+#include <cmath>
+
+using namespace std;
+
+class loc {
+public:
+  char label;
+  int x;
+  int y;
+  int num;
+  loc(l,a,b,n){label=l,x=a,y=b,num=n}
+};
+
+void mark_sink(int **m, deque<loc> &sink){
+
+}
+
+int main(){
+  int n;
+  cin>>n;
+  int **mat = new int * [n];
+  for(int i=0;i<n;i++){
+    mat[i] = new int [n];
+  }
+  for(int i=0;i<n;i++){
+    for(int j=0;j<n;j++){
+      cin>>mat[i][j];
+    }
+  }
+
+  deque<loc> sink;
+
+  mark_sink(mat,sink);
+
+  char **out = new char* [n];
+  for(int i=0;i<n;i++){
+    out[i] = new char [n];
+  }
+
+  for(int i=0;i<n;i++){
+    for(int j=0;j<n;j++){
+      char label = find_sink(i,j,sink);
+      cout<<label<<" "
+    }
+    cout<<endl;
+  }
+  
+  return 0;
+}
